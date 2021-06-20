@@ -155,6 +155,9 @@ public class PlayNhacActivity extends AppCompatActivity {
                     if (position<(mangbaihat.size())){
                         imgplay.setImageResource(R.drawable.iconpause);
                         position++;
+                        if (position > (mangbaihat.size()-1)){
+                            position=0;
+                        }
                         if (repeat==true){
                             if (position==0){
                                 position=mangbaihat.size();
@@ -169,9 +172,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                             }
                             position=index;
                         }
-                        if (position> (mangbaihat.size())){
-                            position=0;
-                        }
+
                         new PlayMp3().execute(mangbaihat.get(position).getLinkbaihat());
                         fragment_dia_nhac.PlayNhac(mangbaihat.get(position).getHinhbaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(position).getTenbaihat());
@@ -188,7 +189,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         imgnext.setClickable(true);
 
                     }
-                },5000);
+                },500);
             }
         });
         imgpre.setOnClickListener(new View.OnClickListener() {
@@ -233,7 +234,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         imgnext.setClickable(true);
 
                     }
-                },5000);
+                },500);
             }
         });
     }
